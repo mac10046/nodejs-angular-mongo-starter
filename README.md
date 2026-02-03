@@ -33,6 +33,12 @@ This is a starter template. To use it for your project:
 | **Process Manager** | PM2 |
 | **Logging** | Winston |
 
+## Support This Project
+
+If you find this boilerplate useful, consider buying me a coffee!
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-yellow?style=flat&logo=buy-me-a-coffee)](https://www.buymeacoffee.com/abdeali.c)
+
 ## Features
 
 ### Authentication
@@ -624,3 +630,13 @@ MIT License - feel free to use this boilerplate for your projects.
 ---
 
 Built with Node.js, Express, MongoDB, Angular, and Bootstrap.
+
+---
+
+## Support
+
+If this boilerplate saved you time or helped with your project, consider supporting its development:
+
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/abdeali.c)
+
+Your support helps maintain and improve this project!
