@@ -1,0 +1,52 @@
+{
+  "name": "project-name",
+  "version": "1.0.0",
+  "description": "Full-stack authentication boilerplate with Node.js, Express, Angular, and MongoDB",
+  "private": true,
+  "scripts": {
+    "install:all": "npm run install:backend && npm run install:frontend && npm run install:admin",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install:admin": "cd admin && npm install",
+    "dev": "concurrently -n \"API,WEB,ADMIN\" -c \"blue,green,magenta\" \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:admin\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "dev:admin": "cd admin && npm start",
+    "build": "npm run build:frontend && npm run build:admin",
+    "build:frontend": "cd frontend && npm run build",
+    "build:admin": "cd admin && npm run build",
+    "start:prod": "cd backend && npm run pm2:start",
+    "stop:prod": "cd backend && npm run pm2:stop",
+    "logs": "cd backend && npm run pm2:logs",
+    "setup": "npm install && npm run install:all && echo Setup complete! Run 'npm run dev' to start development servers.",
+    "db:setup": "node scripts/db-setup.js",
+    "db:setup:admin": "node scripts/db-setup.js --with-admin"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "mongoose": "^8.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "authentication",
+    "nodejs",
+    "express",
+    "angular",
+    "mongodb",
+    "jwt",
+    "oauth",
+    "boilerplate"
+  ],
+  "author": "",
+  "license": "MIT"
+}

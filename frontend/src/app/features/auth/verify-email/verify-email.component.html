@@ -1,0 +1,45 @@
+<div class="auth-container">
+  <div class="auth-card text-center">
+    @if (isLoading) {
+    <!-- Loading State -->
+    <div class="py-4">
+      <div class="spinner-border text-primary mb-3" role="status" style="width: 3rem; height: 3rem;">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <h2 class="auth-title">Verifying Your Email</h2>
+      <p class="text-muted">Please wait...</p>
+    </div>
+    } @else if (isSuccess) {
+    <!-- Success State -->
+    <div class="py-4">
+      <div class="mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M9 12l2 2 4-4" />
+        </svg>
+      </div>
+      <h2 class="auth-title text-success">Email Verified!</h2>
+      <p class="text-muted mb-4">Your email has been verified successfully.</p>
+      <p class="text-muted">Redirecting to login page...</p>
+      <a routerLink="/login" class="btn btn-primary">Go to Login</a>
+    </div>
+    } @else {
+    <!-- Error State -->
+    <div class="py-4">
+      <div class="mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="15" y1="9" x2="9" y2="15" />
+          <line x1="9" y1="9" x2="15" y2="15" />
+        </svg>
+      </div>
+      <h2 class="auth-title text-danger">Verification Failed</h2>
+      <p class="text-muted mb-4">{{ errorMessage }}</p>
+      <div class="d-flex gap-2 justify-content-center">
+        <a routerLink="/login" class="btn btn-outline-primary">Go to Login</a>
+        <a routerLink="/register" class="btn btn-primary">Register Again</a>
+      </div>
+    </div>
+    }
+  </div>
+</div>
