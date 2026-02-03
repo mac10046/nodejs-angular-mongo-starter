@@ -24,10 +24,23 @@ const logFormat = winston.format.combine(
   winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
   winston.format.errors({ stack: true }),
   winston.format.printf(({ level, message, timestamp, stack, ...metadata }) => {
-    let log = `${timestamp} [${level.toUpperCase()}]: ${message}`;
+    // Handle case where message is an object or undefined
+    let msg;
+    if (typeof message === 'object' && message !== null) {
+      msg = JSON.stringify(message);
+    } else if (message === undefined || message === null) {
+      // If no message, use type from metadata or stringify metadata
+      msg = metadata.type || JSON.stringify(metadata);
+      delete metadata.type; // Don't duplicate type in metadata
+    } else {
+      msg = message;
+    }
 
-    // Add metadata if present
-    if (Object.keys(metadata).length > 0) {
+    let log = `${timestamp} [${level.toUpperCase()}]: ${msg}`;
+
+    // Add metadata if present (and has meaningful content)
+    const metaKeys = Object.keys(metadata);
+    if (metaKeys.length > 0 && !(metaKeys.length === 1 && metaKeys[0] === 'type')) {
       log += ` ${JSON.stringify(metadata)}`;
     }
 
